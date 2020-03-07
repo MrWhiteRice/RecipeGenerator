@@ -32,8 +32,24 @@ namespace CookingApp
 			}
 		}
 
+		public class RecipeToggle
+		{
+			public string name;
+			public bool set;
+
+			public RecipeToggle(string Name)
+			{
+				name = Name;
+			}
+			public RecipeToggle(string Name, bool Set)
+			{
+				name = Name;
+				set = Set;
+			}
+		}
+
 		public enum RecipeType
-		{ 
+		{
 			Breakfast,
 			OldFavourites,
 			QuickAndEasy,
@@ -42,9 +58,38 @@ namespace CookingApp
 		}
 
 		List<Recipe> recipes = new List<Recipe>();
+		List<RecipeToggle> buttonToggles = new List<RecipeToggle>();
+
 		Random random;
-		int lastRecipe = -1;
+		
 		Image missing;
+		int lastRecipe = -1;
+		Form activeSubForm = null;
+
+		public Window()
+		{
+			//set up random seed
+			random = new Random(DateTime.Now.Hour * DateTime.Now.Second * DateTime.Now.Minute);
+			missing = Image.FromFile("Images/Missing.png");
+
+			//set up window
+			InitializeComponent();
+
+			//Init Bool matrix
+			InitBoolMatrix();
+
+			//set up recipes
+			InitRecipes();
+		}
+
+		void InitBoolMatrix()
+		{
+			foreach(string e in Enum.GetNames(typeof(RecipeType)))
+			{
+				buttonToggles.Add(new RecipeToggle(e));
+				Console.WriteLine("adding: " + e);
+			}
+		}
 
 		void InitRecipes()
 		{
@@ -79,33 +124,44 @@ namespace CookingApp
 			}
 		}
 
-		public Window()
-		{
-			//set up random seed
-			random = new Random(DateTime.Now.Hour + DateTime.Now.Second);
-			missing = Image.FromFile("Images/Missing.png");
-
-			//set up window
-			InitializeComponent();
-			//set up recipes
-			InitRecipes();
-		}
-
-		private void nextRecipe_Click(object sender, EventArgs e)
-		{
-			NewRecipe();
-		}
-
 		void NewRecipe()
 		{
 			//get a random item
 			int select = random.Next(0, recipes.Count);
 
-			//if none are checked
-			if(!checkBoxBreakfast.Checked && !checkBoxOldFavourites.Checked && !checkBoxQuickAndEasy.Checked && !checkBoxHealthy.Checked && !checkBoxSharingWithFriends.Checked)
+			//cycle all filters
+			bool none = true;
+			foreach(RecipeToggle r in buttonToggles)
 			{
+				if(r.set)
+				{
+					none = false;
+
+					//check if the filter matches out recipe
+					if(r.name == recipes[select].type.ToString())
+					{
+						if(r.set)
+						{
+							Console.WriteLine(lastRecipe + " : " + select + " : " + r.name + " : " + r.set + " : " + recipes[select].name);
+							none = false;
+							break;
+						}
+						else
+						{
+							NewRecipe();
+							return;
+						}
+					}
+				}
+			}
+
+			//if no filters were active
+			if(none)
+			{
+				Console.WriteLine("No filters found!");
+
 				//set missing
-				recipeText.Text = "Please check some filters!";
+				recipeText.Text = "Nothing filters found! Please check some filters!";
 
 				//reset selection
 				lastRecipe = -1;
@@ -113,49 +169,11 @@ namespace CookingApp
 				return;
 			}
 
-			//check if filtered recipe
-			switch(recipes[select].type)
-			{
-				case RecipeType.Breakfast:
-					if(!checkBoxBreakfast.Checked)
-					{
-						NewRecipe();
-						return;
-					}
-					break;
-				case RecipeType.OldFavourites:
-					if(!checkBoxOldFavourites.Checked)
-					{
-						NewRecipe();
-						return;
-					}
-					break;
-				case RecipeType.QuickAndEasy:
-					if(!checkBoxQuickAndEasy.Checked)
-					{
-						NewRecipe();
-						return;
-					}
-					break;
-				case RecipeType.Healthy:
-					if(!checkBoxHealthy.Checked)
-					{
-						NewRecipe();
-						return;
-					}
-					break;
-				case RecipeType.SharingWithFriends:
-					if(!checkBoxSharingWithFriends.Checked)
-					{
-						NewRecipe();
-						return;
-					}
-					break;
-			}
-
 			//this is to prevent the same item from being picked;
 			if(lastRecipe == select)
 			{
+				Console.WriteLine("Same recipe! Getting a new one!" + lastRecipe + "/" + select);
+
 				NewRecipe();
 				return;
 			}
@@ -166,14 +184,14 @@ namespace CookingApp
 			{
 				loaded = Image.FromFile("Images/" + recipes[select].name + ".png");
 			}
-			catch 
+			catch
 			{
 				loaded = missing;
 			}
-			
+
 			//try set image
 			recipeImage.Image = loaded;
-			
+
 			//set recipe information
 			recipeText.Text = recipes[select].name + "\nPG: " + recipes[select].page + "\nType: " + recipes[select].type.ToString();
 			descriptionText.Text = recipes[select].ingredients;
@@ -182,18 +200,80 @@ namespace CookingApp
 			lastRecipe = select;
 		}
 
-		//Ingredients Button Click
-		private void button1_Click(object sender, EventArgs e)
+		void OpenSubMenu(Form form)
+		{
+			if(activeSubForm != null)
+			{
+				activeSubForm.Close();
+			}
+
+			activeSubForm = form;
+		}
+
+		//New Recipe Button
+		private void button1_Click_1(object sender, EventArgs e)
+		{
+			Console.WriteLine("|||||||||||||||||||||||");
+			NewRecipe();
+		}
+
+		//Ingredients Button
+		private void button5_Click(object sender, EventArgs e)
 		{
 			if(lastRecipe != -1)
 				descriptionText.Text = recipes[lastRecipe].ingredients;
 		}
 
 		//Method Button Click
-		private void button2_Click(object sender, EventArgs e)
+		private void button4_Click(object sender, EventArgs e)
 		{
 			if(lastRecipe != -1)
 				descriptionText.Text = recipes[lastRecipe].method;
 		}
+
+		void ToggleFilter(object toggle)
+		{
+			Button b = (Button)toggle;
+			string toggleName = b.Name.Replace("button", "");
+
+			foreach(RecipeToggle r in buttonToggles)
+			{
+				if(r.name == toggleName)
+				{
+					r.set = !r.set;
+
+					b.BackColor = r.set ? Color.FromArgb(37, 37, 38) : Color.FromArgb(15, 15, 15);
+
+				}
+			}
+		}
+
+		#region Filter Buttons
+		private void buttonHealth_Click(object sender, EventArgs e)
+		{
+			ToggleFilter(sender);
+		}
+
+		private void buttonOldFavourites_Click(object sender, EventArgs e)
+		{
+			ToggleFilter(sender);
+		}
+
+		private void buttonQuickAndEasy_Click(object sender, EventArgs e)
+		{
+			ToggleFilter(sender);
+		}
+
+		private void buttonBreakfast_Click(object sender, EventArgs e)
+		{
+			ToggleFilter(sender);
+		}
+
+		private void buttonSharingWithFriends_Click(object sender, EventArgs e)
+		{
+			ToggleFilter(sender);
+		}
+		#endregion
+
 	}
 }
