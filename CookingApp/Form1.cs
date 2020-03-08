@@ -157,7 +157,7 @@ namespace CookingApp
 				}
 			}
 
-			if(!found)
+			if(!found && !none)
 			{
 				NewRecipe();
 				return;
