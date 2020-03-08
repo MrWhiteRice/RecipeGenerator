@@ -157,7 +157,7 @@ namespace CookingApp
 				}
 			}
 
-			if(!found && !none)
+			if(!found && !none || lastRecipe == select)
 			{
 				NewRecipe();
 				return;
@@ -174,15 +174,6 @@ namespace CookingApp
 				//reset selection
 				lastRecipe = -1;
 
-				return;
-			}
-
-			//this is to prevent the same item from being picked;
-			if(lastRecipe == select)
-			{
-				Console.WriteLine("Same recipe! Getting a new one!" + lastRecipe + "/" + select);
-
-				NewRecipe();
 				return;
 			}
 
