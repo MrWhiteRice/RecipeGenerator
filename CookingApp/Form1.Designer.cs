@@ -30,8 +30,6 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Window));
-			this.recipeText = new System.Windows.Forms.Label();
-			this.descriptionText = new System.Windows.Forms.Label();
 			this.recipeImage = new System.Windows.Forms.PictureBox();
 			this.labelFilters = new System.Windows.Forms.Label();
 			this.buttonBreakfast = new System.Windows.Forms.Button();
@@ -40,49 +38,32 @@
 			this.buttonHealthy = new System.Windows.Forms.Button();
 			this.buttonSharingWithFriends = new System.Windows.Forms.Button();
 			this.panelSide = new System.Windows.Forms.Panel();
-			this.button1 = new System.Windows.Forms.Button();
+			this.button6 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.button4 = new System.Windows.Forms.Button();
+			this.recipeText = new System.Windows.Forms.Label();
+			this.button3 = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.button5 = new System.Windows.Forms.Button();
+			this.button4 = new System.Windows.Forms.Button();
+			this.descriptionText = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.panel2 = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.recipeImage)).BeginInit();
 			this.panelSide.SuspendLayout();
 			this.panel1.SuspendLayout();
+			this.panel2.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// recipeText
-			// 
-			this.recipeText.AutoSize = true;
-			this.recipeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-			this.recipeText.Location = new System.Drawing.Point(327, 92);
-			this.recipeText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.recipeText.Name = "recipeText";
-			this.recipeText.Size = new System.Drawing.Size(238, 17);
-			this.recipeText.TabIndex = 1;
-			this.recipeText.Text = "Please click the \'New Recipe\' button!";
-			// 
-			// descriptionText
-			// 
-			this.descriptionText.AutoSize = true;
-			this.descriptionText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-			this.descriptionText.Location = new System.Drawing.Point(4, 38);
-			this.descriptionText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.descriptionText.Name = "descriptionText";
-			this.descriptionText.Size = new System.Drawing.Size(32, 17);
-			this.descriptionText.TabIndex = 9;
-			this.descriptionText.Text = "123";
 			// 
 			// recipeImage
 			// 
 			this.recipeImage.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.recipeImage.Image = ((System.Drawing.Image)(resources.GetObject("recipeImage.Image")));
-			this.recipeImage.Location = new System.Drawing.Point(0, 0);
-			this.recipeImage.Margin = new System.Windows.Forms.Padding(4);
+			this.recipeImage.Location = new System.Drawing.Point(0, 39);
+			this.recipeImage.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
 			this.recipeImage.Name = "recipeImage";
-			this.recipeImage.Size = new System.Drawing.Size(200, 200);
+			this.recipeImage.Size = new System.Drawing.Size(150, 150);
 			this.recipeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.recipeImage.TabIndex = 3;
 			this.recipeImage.TabStop = false;
@@ -186,36 +167,33 @@
             | System.Windows.Forms.AnchorStyles.Left)));
 			this.panelSide.AutoScroll = true;
 			this.panelSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+			this.panelSide.Controls.Add(this.button6);
 			this.panelSide.Controls.Add(this.buttonSharingWithFriends);
 			this.panelSide.Controls.Add(this.buttonHealthy);
 			this.panelSide.Controls.Add(this.buttonQuickAndEasy);
 			this.panelSide.Controls.Add(this.buttonOldFavourites);
 			this.panelSide.Controls.Add(this.buttonBreakfast);
 			this.panelSide.Controls.Add(this.labelFilters);
-			this.panelSide.Location = new System.Drawing.Point(0, 199);
+			this.panelSide.Location = new System.Drawing.Point(0, 0);
 			this.panelSide.Margin = new System.Windows.Forms.Padding(0);
 			this.panelSide.Name = "panelSide";
-			this.panelSide.Size = new System.Drawing.Size(200, 282);
+			this.panelSide.Size = new System.Drawing.Size(200, 481);
 			this.panelSide.TabIndex = 10;
 			// 
-			// button1
+			// button6
 			// 
-			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-			this.button1.Location = new System.Drawing.Point(200, 481);
-			this.button1.Margin = new System.Windows.Forms.Padding(0);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(685, 80);
-			this.button1.TabIndex = 20;
-			this.button1.Text = "Random Recipe!";
-			this.button1.UseVisualStyleBackColor = false;
-			this.button1.Click += new System.EventHandler(this.button1_Click_1);
+			this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+			this.button6.FlatAppearance.BorderSize = 0;
+			this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+			this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+			this.button6.Location = new System.Drawing.Point(161, 0);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(39, 35);
+			this.button6.TabIndex = 20;
+			this.button6.Text = "...";
+			this.button6.UseVisualStyleBackColor = false;
 			// 
 			// button2
 			// 
@@ -234,6 +212,22 @@
 			this.button2.Text = "Add Recipe";
 			this.button2.UseVisualStyleBackColor = false;
 			// 
+			// contextMenuStrip1
+			// 
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+			// 
+			// recipeText
+			// 
+			this.recipeText.AutoSize = true;
+			this.recipeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+			this.recipeText.Location = new System.Drawing.Point(385, 79);
+			this.recipeText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.recipeText.Name = "recipeText";
+			this.recipeText.Size = new System.Drawing.Size(238, 17);
+			this.recipeText.TabIndex = 1;
+			this.recipeText.Text = "Please click the \'New Recipe\' button!";
+			// 
 			// button3
 			// 
 			this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -243,43 +237,43 @@
 			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-			this.button3.Location = new System.Drawing.Point(760, 0);
-			this.button3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+			this.button3.Location = new System.Drawing.Point(560, 0);
+			this.button3.Margin = new System.Windows.Forms.Padding(0);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(125, 40);
 			this.button3.TabIndex = 21;
 			this.button3.Text = "...";
 			this.button3.UseVisualStyleBackColor = false;
 			// 
-			// contextMenuStrip1
+			// button1
 			// 
-			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-			// 
-			// button4
-			// 
-			this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-			this.button4.FlatAppearance.BorderSize = 0;
-			this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-			this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-			this.button4.Location = new System.Drawing.Point(0, 0);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(345, 35);
-			this.button4.TabIndex = 20;
-			this.button4.Text = "Method";
-			this.button4.UseVisualStyleBackColor = false;
-			this.button4.Click += new System.EventHandler(this.button4_Click);
+			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+			this.button1.FlatAppearance.BorderSize = 0;
+			this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+			this.button1.Location = new System.Drawing.Point(0, 481);
+			this.button1.Margin = new System.Windows.Forms.Padding(0);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(685, 80);
+			this.button1.TabIndex = 20;
+			this.button1.Text = "Random Recipe!";
+			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.button1_Click_1);
 			// 
 			// panel1
 			// 
-			this.panel1.BackColor = System.Drawing.Color.Red;
+			this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
 			this.panel1.Controls.Add(this.button5);
 			this.panel1.Controls.Add(this.button4);
 			this.panel1.Controls.Add(this.descriptionText);
-			this.panel1.Location = new System.Drawing.Point(200, 199);
+			this.panel1.Location = new System.Drawing.Point(0, 189);
+			this.panel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(685, 282);
+			this.panel1.Size = new System.Drawing.Size(685, 292);
 			this.panel1.TabIndex = 24;
 			// 
 			// button5
@@ -297,6 +291,32 @@
 			this.button5.UseVisualStyleBackColor = false;
 			this.button5.Click += new System.EventHandler(this.button5_Click);
 			// 
+			// button4
+			// 
+			this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+			this.button4.FlatAppearance.BorderSize = 0;
+			this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+			this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+			this.button4.Location = new System.Drawing.Point(0, 0);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(345, 35);
+			this.button4.TabIndex = 20;
+			this.button4.Text = "Method";
+			this.button4.UseVisualStyleBackColor = false;
+			this.button4.Click += new System.EventHandler(this.button4_Click);
+			// 
+			// descriptionText
+			// 
+			this.descriptionText.AutoSize = true;
+			this.descriptionText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+			this.descriptionText.Location = new System.Drawing.Point(4, 38);
+			this.descriptionText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.descriptionText.Name = "descriptionText";
+			this.descriptionText.Size = new System.Drawing.Size(32, 17);
+			this.descriptionText.TabIndex = 9;
+			this.descriptionText.Text = "123";
+			// 
 			// label1
 			// 
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -304,7 +324,7 @@
 			this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-			this.label1.Location = new System.Drawing.Point(200, 0);
+			this.label1.Location = new System.Drawing.Point(0, 0);
 			this.label1.Margin = new System.Windows.Forms.Padding(0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(560, 40);
@@ -312,22 +332,31 @@
 			this.label1.Text = "Food Name";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// panel2
+			// 
+			this.panel2.BackColor = System.Drawing.Color.DarkCyan;
+			this.panel2.Controls.Add(this.label1);
+			this.panel2.Controls.Add(this.panel1);
+			this.panel2.Controls.Add(this.button1);
+			this.panel2.Controls.Add(this.recipeImage);
+			this.panel2.Controls.Add(this.button3);
+			this.panel2.Controls.Add(this.recipeText);
+			this.panel2.Location = new System.Drawing.Point(200, 0);
+			this.panel2.Margin = new System.Windows.Forms.Padding(0);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(685, 561);
+			this.panel2.TabIndex = 25;
+			// 
 			// Window
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
 			this.ClientSize = new System.Drawing.Size(884, 561);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.button2);
-			this.Controls.Add(this.button3);
-			this.Controls.Add(this.button1);
 			this.Controls.Add(this.panelSide);
-			this.Controls.Add(this.recipeImage);
-			this.Controls.Add(this.recipeText);
+			this.Controls.Add(this.panel2);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.MaximizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(900, 600);
@@ -337,14 +366,13 @@
 			this.panelSide.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			this.panel2.ResumeLayout(false);
+			this.panel2.PerformLayout();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
-		private System.Windows.Forms.Label recipeText;
-		private System.Windows.Forms.Label descriptionText;
 		private System.Windows.Forms.PictureBox recipeImage;
 		private System.Windows.Forms.Label labelFilters;
 		private System.Windows.Forms.Button buttonBreakfast;
@@ -353,14 +381,18 @@
 		private System.Windows.Forms.Button buttonHealthy;
 		private System.Windows.Forms.Button buttonSharingWithFriends;
 		public System.Windows.Forms.Panel panelSide;
-		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Label recipeText;
+		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button button5;
+		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Label descriptionText;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Button button6;
 	}
 }
 

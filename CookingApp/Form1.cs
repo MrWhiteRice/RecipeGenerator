@@ -131,6 +131,7 @@ namespace CookingApp
 
 			//cycle all filters
 			bool none = true;
+			bool found = false;
 			foreach(RecipeToggle r in buttonToggles)
 			{
 				if(r.set)
@@ -140,10 +141,11 @@ namespace CookingApp
 					//check if the filter matches out recipe
 					if(r.name == recipes[select].type.ToString())
 					{
+						Console.WriteLine("match" + r.name  + "|" + recipes[select].type.ToString());
 						if(r.set)
 						{
 							Console.WriteLine(lastRecipe + " : " + select + " : " + r.name + " : " + r.set + " : " + recipes[select].name);
-							none = false;
+							found = true;
 							break;
 						}
 						else
@@ -153,6 +155,12 @@ namespace CookingApp
 						}
 					}
 				}
+			}
+
+			if(!found)
+			{
+				NewRecipe();
+				return;
 			}
 
 			//if no filters were active
@@ -208,6 +216,13 @@ namespace CookingApp
 			}
 
 			activeSubForm = form;
+			form.TopLevel = false;
+			form.FormBorderStyle = FormBorderStyle.None;
+			form.Dock = DockStyle.Fill;
+			//panel.add(form);
+			//panel.Tag = form;
+			form.BringToFront();
+			form.Show();
 		}
 
 		//New Recipe Button
