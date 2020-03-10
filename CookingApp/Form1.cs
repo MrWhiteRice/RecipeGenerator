@@ -80,6 +80,9 @@ namespace CookingApp
 
 			//set up recipes
 			InitRecipes();
+
+			//Set up first viewport
+			OpenSubMenu(new RecipeGenerator());
 		}
 
 		void InitBoolMatrix()
@@ -169,7 +172,7 @@ namespace CookingApp
 				Console.WriteLine("No filters found!");
 
 				//set missing
-				recipeText.Text = "Nothing filters found! Please check some filters!";
+				////////////////////////////////////////recipeText.Text = "Nothing filters found! Please check some filters!";
 
 				//reset selection
 				lastRecipe = -1;
@@ -189,11 +192,13 @@ namespace CookingApp
 			}
 
 			//try set image
-			recipeImage.Image = loaded;
+			////////////////////////////////////////recipeImage.Image = loaded;
 
-			//set recipe information
-			recipeText.Text = recipes[select].name + "\nPG: " + recipes[select].page + "\nType: " + recipes[select].type.ToString();
-			descriptionText.Text = recipes[select].ingredients;
+			//set recipe information 
+			//TODO: Turn into array
+			////////////////////////////////////////labelFoodName.Text = recipes[select].name;
+			////////////////////////////////////////recipeText.Text = recipes[select].name + "\nPG: " + recipes[select].page + "\nType: " + recipes[select].type.ToString();
+			////////////////////////////////////////descriptionText.Text = recipes[select].method;
 
 			//remember selection
 			lastRecipe = select;
@@ -207,35 +212,36 @@ namespace CookingApp
 			}
 
 			activeSubForm = form;
+
 			form.TopLevel = false;
 			form.FormBorderStyle = FormBorderStyle.None;
 			form.Dock = DockStyle.Fill;
-			//panel.add(form);
-			//panel.Tag = form;
+			panelViewPort.Controls.Add(form);
+			panelViewPort.Tag = form;
 			form.BringToFront();
 			form.Show();
 		}
 
-		//New Recipe Button
-		private void button1_Click_1(object sender, EventArgs e)
-		{
-			Console.WriteLine("|||||||||||||||||||||||");
-			NewRecipe();
-		}
+		////New Recipe Button
+		//private void button1_Click_1(object sender, EventArgs e)
+		//{
+		//	Console.WriteLine("|||||||||||||||||||||||");
+		//	NewRecipe();
+		//}
 
-		//Ingredients Button
-		private void button5_Click(object sender, EventArgs e)
-		{
-			if(lastRecipe != -1)
-				descriptionText.Text = recipes[lastRecipe].ingredients;
-		}
+		////Ingredients Button
+		//private void button5_Click(object sender, EventArgs e)
+		//{
+		//	if(lastRecipe != -1){ }
+		//		////////////////////////////////////////descriptionText.Text = recipes[lastRecipe].ingredients;
+		//}
 
-		//Method Button Click
-		private void button4_Click(object sender, EventArgs e)
-		{
-			if(lastRecipe != -1)
-				descriptionText.Text = recipes[lastRecipe].method;
-		}
+		////Method Button Click
+		//private void button4_Click(object sender, EventArgs e)
+		//{
+		//	if(lastRecipe != -1) { }
+		//		////////////////////////////////////////descriptionText.Text = recipes[lastRecipe].method;
+		//}
 
 		void ToggleFilter(object toggle)
 		{
