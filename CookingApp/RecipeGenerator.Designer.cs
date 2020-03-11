@@ -41,7 +41,6 @@
 			this.panelBackPanel = new System.Windows.Forms.Panel();
 			this.panelSideBar = new System.Windows.Forms.Panel();
 			this.buttonFocusStealer2 = new System.Windows.Forms.Button();
-			this.buttonAddRecipe = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.recipeImage)).BeginInit();
 			this.panelMain.SuspendLayout();
 			this.panelBackPanel.SuspendLayout();
@@ -63,7 +62,6 @@
 			// panelMain
 			// 
 			this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-			this.panelMain.Controls.Add(this.buttonAddRecipe);
 			this.panelMain.Controls.Add(this.descriptionText);
 			this.panelMain.Controls.Add(this.recipeText);
 			this.panelMain.Location = new System.Drawing.Point(200, 0);
@@ -217,26 +215,6 @@
 			this.buttonFocusStealer2.Text = "Why can you see me";
 			this.buttonFocusStealer2.UseVisualStyleBackColor = true;
 			// 
-			// buttonAddRecipe
-			// 
-			this.buttonAddRecipe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.buttonAddRecipe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-			this.buttonAddRecipe.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.buttonAddRecipe.FlatAppearance.BorderSize = 0;
-			this.buttonAddRecipe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-			this.buttonAddRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonAddRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonAddRecipe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-			this.buttonAddRecipe.Location = new System.Drawing.Point(47, 320);
-			this.buttonAddRecipe.Margin = new System.Windows.Forms.Padding(0);
-			this.buttonAddRecipe.Name = "buttonAddRecipe";
-			this.buttonAddRecipe.Size = new System.Drawing.Size(200, 80);
-			this.buttonAddRecipe.TabIndex = 23;
-			this.buttonAddRecipe.TabStop = false;
-			this.buttonAddRecipe.Text = "Add Recipe";
-			this.buttonAddRecipe.UseVisualStyleBackColor = false;
-			this.buttonAddRecipe.Click += new System.EventHandler(this.buttonAddRecipe_Click);
-			// 
 			// RecipeGenerator
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -273,6 +251,5 @@
 		private System.Windows.Forms.Panel panelBackPanel;
 		private System.Windows.Forms.Panel panelSideBar;
 		private System.Windows.Forms.Button buttonFocusStealer2;
-		private System.Windows.Forms.Button buttonAddRecipe;
 	}
 }

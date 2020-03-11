@@ -7,70 +7,33 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CookingApp
 {
+	public enum RecipeType
+	{
+		Breakfast,
+		OldFavourites,
+		QuickAndEasy,
+		Healthy,
+		SharingWithFriends
+	}
+
 	public partial class Window : Form
 	{
-		public class Recipe
-		{
-			public string name;
-			public int page;
-			public RecipeType type;
-			public string ingredients;
-			public string method;
+		public List<Recipe> recipes = new List<Recipe>();
+		public List<RecipeToggle> buttonToggles = new List<RecipeToggle>();
 
-			public Recipe(int Page, RecipeType RecipeType, string Name, string Ingredients, string Method)
-			{
-				name = Name;
-				page = Page;
-				type = RecipeType;
-				ingredients = Ingredients;
-				method = Method;
-			}
-		}
-
-		public class RecipeToggle
-		{
-			public string name;
-			public bool set;
-
-			public RecipeToggle(string Name)
-			{
-				name = Name;
-			}
-			public RecipeToggle(string Name, bool Set)
-			{
-				name = Name;
-				set = Set;
-			}
-		}
-
-		public enum RecipeType
-		{
-			Breakfast,
-			OldFavourites,
-			QuickAndEasy,
-			Healthy,
-			SharingWithFriends
-		}
-
-		List<Recipe> recipes = new List<Recipe>();
-		List<RecipeToggle> buttonToggles = new List<RecipeToggle>();
-
-		Random random;
-		
-		Image missing;
-		int lastRecipe = -1;
 		Form activeSubForm = null;
+
+		public static Window window;
 
 		public Window()
 		{
-			//set up random seed
-			random = new Random(DateTime.Now.Hour * DateTime.Now.Second * DateTime.Now.Minute);
-			missing = Image.FromFile("Images/Missing.png");
+			window = this;
 
 			//set up window
 			InitializeComponent();
@@ -81,14 +44,24 @@ namespace CookingApp
 			//set up recipes
 			InitRecipes();
 
+			//toggle a filter so we dont throw an error
+			ToggleFilter("QuickAndEasy");
+
 			//Set up first viewport
 			OpenSubMenu(new RecipeGenerator());
+		}
+
+		//called when window is closed
+		protected override void OnFormClosed(FormClosedEventArgs e)
+		{
+			base.OnFormClosed(e);
 		}
 
 		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
 		{
 			if(!msg.HWnd.Equals(this.Handle) && (keyData == Keys.Tab) || (keyData == Keys.Left || keyData == Keys.Right || keyData == Keys.Up || keyData == Keys.Down))
-			{ 
+			{
+				buttonFocusStealer.Focus();
 				return true;
 			}
 
@@ -138,83 +111,6 @@ namespace CookingApp
 			}
 		}
 
-		void NewRecipe()
-		{
-			//get a random item
-			int select = random.Next(0, recipes.Count);
-
-			//cycle all filters
-			bool none = true;
-			bool found = false;
-			foreach(RecipeToggle r in buttonToggles)
-			{
-				if(r.set)
-				{
-					none = false;
-
-					//check if the filter matches out recipe
-					if(r.name == recipes[select].type.ToString())
-					{
-						Console.WriteLine("match" + r.name  + "|" + recipes[select].type.ToString());
-						if(r.set)
-						{
-							Console.WriteLine(lastRecipe + " : " + select + " : " + r.name + " : " + r.set + " : " + recipes[select].name);
-							found = true;
-							break;
-						}
-						else
-						{
-							NewRecipe();
-							return;
-						}
-					}
-				}
-			}
-
-			if(!found && !none || lastRecipe == select)
-			{
-				NewRecipe();
-				return;
-			}
-
-			//if no filters were active
-			if(none)
-			{
-				Console.WriteLine("No filters found!");
-
-				//set missing
-				////////////////////////////////////////recipeText.Text = "Nothing filters found! Please check some filters!";
-
-				//reset selection
-				lastRecipe = -1;
-
-				return;
-			}
-
-			//load image
-			Image loaded;
-			try
-			{
-				loaded = Image.FromFile("Images/" + recipes[select].name + ".png");
-			}
-			catch
-			{
-				loaded = missing;
-			}
-
-			//try set image
-			////////////////////////////////////////recipeImage.Image = loaded;
-
-			//set recipe information 
-			//TODO: Turn into array
-			////////////////////////////////////////labelFoodName.Text = recipes[select].name;
-			////////////////////////////////////////recipeText.Text = recipes[select].name + "\nPG: " + recipes[select].page + "\nType: " + recipes[select].type.ToString();
-			////////////////////////////////////////descriptionText.Text = recipes[select].method;
-
-			//remember selection
-			lastRecipe = select;
-		}
-
 		void OpenSubMenu(Form form)
 		{
 			if(activeSubForm != null)
@@ -233,27 +129,6 @@ namespace CookingApp
 			form.Show();
 		}
 
-		////New Recipe Button
-		//private void button1_Click_1(object sender, EventArgs e)
-		//{
-		//	Console.WriteLine("|||||||||||||||||||||||");
-		//	NewRecipe();
-		//}
-
-		////Ingredients Button
-		//private void button5_Click(object sender, EventArgs e)
-		//{
-		//	if(lastRecipe != -1){ }
-		//		////////////////////////////////////////descriptionText.Text = recipes[lastRecipe].ingredients;
-		//}
-
-		////Method Button Click
-		//private void button4_Click(object sender, EventArgs e)
-		//{
-		//	if(lastRecipe != -1) { }
-		//		////////////////////////////////////////descriptionText.Text = recipes[lastRecipe].method;
-		//}
-
 		void ToggleFilter(object toggle)
 		{
 			Button b = (Button)toggle;
@@ -266,7 +141,44 @@ namespace CookingApp
 					r.set = !r.set;
 
 					b.BackColor = r.set ? Color.FromArgb(37, 37, 38) : Color.FromArgb(15, 15, 15);
+				}
+			}
+		}
 
+		void ToggleFilter(string toggle)
+		{
+			Button b = null;
+			string toggleName = "";
+
+			foreach(Control c in panelScroll.Controls)
+			{
+				toggleName = c.Name.Replace("button", "");
+
+				if(toggle == toggleName)
+				{
+					b = (Button)c;
+					Console.WriteLine("found toggle " + toggle + " > " + b.Name);
+					
+					break;
+				}
+			}
+
+			if(b == null)
+			{
+				Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<No Suitable Object Found!");
+				return;
+			}
+
+			foreach(RecipeToggle r in buttonToggles)
+			{
+				if(r.name == toggleName)
+				{
+					Console.WriteLine("Toggling OBject: " + r.name + " > " + b.Name + " > " + toggleName);
+
+					r.set = !r.set;
+
+					b.BackColor = r.set ? Color.FromArgb(37, 37, 38) : Color.FromArgb(15, 15, 15);
+					break;
 				}
 			}
 		}
