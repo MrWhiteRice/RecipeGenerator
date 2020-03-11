@@ -47,6 +47,7 @@
 			// 
 			this.buttonBreakfast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
 			this.buttonBreakfast.Dock = System.Windows.Forms.DockStyle.Top;
+			this.buttonBreakfast.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonBreakfast.FlatAppearance.BorderSize = 0;
 			this.buttonBreakfast.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
 			this.buttonBreakfast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -55,6 +56,7 @@
 			this.buttonBreakfast.Name = "buttonBreakfast";
 			this.buttonBreakfast.Size = new System.Drawing.Size(200, 35);
 			this.buttonBreakfast.TabIndex = 15;
+			this.buttonBreakfast.TabStop = false;
 			this.buttonBreakfast.Text = "Breakfast";
 			this.buttonBreakfast.UseVisualStyleBackColor = false;
 			this.buttonBreakfast.Click += new System.EventHandler(this.buttonBreakfast_Click);
@@ -63,6 +65,7 @@
 			// 
 			this.buttonOldFavourites.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
 			this.buttonOldFavourites.Dock = System.Windows.Forms.DockStyle.Top;
+			this.buttonOldFavourites.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonOldFavourites.FlatAppearance.BorderSize = 0;
 			this.buttonOldFavourites.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
 			this.buttonOldFavourites.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -71,6 +74,7 @@
 			this.buttonOldFavourites.Name = "buttonOldFavourites";
 			this.buttonOldFavourites.Size = new System.Drawing.Size(200, 35);
 			this.buttonOldFavourites.TabIndex = 16;
+			this.buttonOldFavourites.TabStop = false;
 			this.buttonOldFavourites.Text = "Old Favourites";
 			this.buttonOldFavourites.UseVisualStyleBackColor = false;
 			this.buttonOldFavourites.Click += new System.EventHandler(this.buttonOldFavourites_Click);
@@ -79,6 +83,7 @@
 			// 
 			this.buttonQuickAndEasy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
 			this.buttonQuickAndEasy.Dock = System.Windows.Forms.DockStyle.Top;
+			this.buttonQuickAndEasy.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonQuickAndEasy.FlatAppearance.BorderSize = 0;
 			this.buttonQuickAndEasy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
 			this.buttonQuickAndEasy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -87,6 +92,7 @@
 			this.buttonQuickAndEasy.Name = "buttonQuickAndEasy";
 			this.buttonQuickAndEasy.Size = new System.Drawing.Size(200, 35);
 			this.buttonQuickAndEasy.TabIndex = 17;
+			this.buttonQuickAndEasy.TabStop = false;
 			this.buttonQuickAndEasy.Text = "Quick and Easy";
 			this.buttonQuickAndEasy.UseVisualStyleBackColor = false;
 			this.buttonQuickAndEasy.Click += new System.EventHandler(this.buttonQuickAndEasy_Click);
@@ -95,6 +101,7 @@
 			// 
 			this.buttonHealthy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
 			this.buttonHealthy.Dock = System.Windows.Forms.DockStyle.Top;
+			this.buttonHealthy.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonHealthy.FlatAppearance.BorderSize = 0;
 			this.buttonHealthy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
 			this.buttonHealthy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -103,6 +110,7 @@
 			this.buttonHealthy.Name = "buttonHealthy";
 			this.buttonHealthy.Size = new System.Drawing.Size(200, 35);
 			this.buttonHealthy.TabIndex = 18;
+			this.buttonHealthy.TabStop = false;
 			this.buttonHealthy.Text = "Healthy";
 			this.buttonHealthy.UseVisualStyleBackColor = false;
 			this.buttonHealthy.Click += new System.EventHandler(this.buttonHealth_Click);
@@ -111,6 +119,7 @@
 			// 
 			this.buttonSharingWithFriends.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
 			this.buttonSharingWithFriends.Dock = System.Windows.Forms.DockStyle.Top;
+			this.buttonSharingWithFriends.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonSharingWithFriends.FlatAppearance.BorderSize = 0;
 			this.buttonSharingWithFriends.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
 			this.buttonSharingWithFriends.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -119,6 +128,7 @@
 			this.buttonSharingWithFriends.Name = "buttonSharingWithFriends";
 			this.buttonSharingWithFriends.Size = new System.Drawing.Size(200, 35);
 			this.buttonSharingWithFriends.TabIndex = 19;
+			this.buttonSharingWithFriends.TabStop = false;
 			this.buttonSharingWithFriends.Text = "Sharing with Friends";
 			this.buttonSharingWithFriends.UseVisualStyleBackColor = false;
 			this.buttonSharingWithFriends.Click += new System.EventHandler(this.buttonSharingWithFriends_Click);
@@ -144,6 +154,7 @@
 			// 
 			this.buttonAddRecipe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.buttonAddRecipe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+			this.buttonAddRecipe.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonAddRecipe.FlatAppearance.BorderSize = 0;
 			this.buttonAddRecipe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
 			this.buttonAddRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -154,6 +165,7 @@
 			this.buttonAddRecipe.Name = "buttonAddRecipe";
 			this.buttonAddRecipe.Size = new System.Drawing.Size(200, 80);
 			this.buttonAddRecipe.TabIndex = 21;
+			this.buttonAddRecipe.TabStop = false;
 			this.buttonAddRecipe.Text = "Add Recipe";
 			this.buttonAddRecipe.UseVisualStyleBackColor = false;
 			// 
@@ -183,6 +195,7 @@
 			// button1
 			// 
 			this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+			this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.button1.FlatAppearance.BorderSize = 0;
 			this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -192,6 +205,7 @@
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(39, 40);
 			this.button1.TabIndex = 20;
+			this.button1.TabStop = false;
 			this.button1.Text = "...";
 			this.button1.UseVisualStyleBackColor = false;
 			// 

@@ -60,7 +60,7 @@
 			// 
 			// panelMain
 			// 
-			this.panelMain.BackColor = System.Drawing.Color.LightSeaGreen;
+			this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
 			this.panelMain.Controls.Add(this.descriptionText);
 			this.panelMain.Controls.Add(this.recipeText);
 			this.panelMain.Location = new System.Drawing.Point(200, 0);
@@ -108,7 +108,10 @@
 			// buttonMethod
 			// 
 			this.buttonMethod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+			this.buttonMethod.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonMethod.FlatAppearance.BorderSize = 0;
+			this.buttonMethod.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.buttonMethod.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonMethod.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
 			this.buttonMethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonMethod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
@@ -117,6 +120,7 @@
 			this.buttonMethod.Name = "buttonMethod";
 			this.buttonMethod.Size = new System.Drawing.Size(200, 35);
 			this.buttonMethod.TabIndex = 20;
+			this.buttonMethod.TabStop = false;
 			this.buttonMethod.Text = "Method";
 			this.buttonMethod.UseVisualStyleBackColor = false;
 			// 
@@ -124,7 +128,11 @@
 			// 
 			this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+			this.buttonEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.buttonEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonEdit.FlatAppearance.BorderSize = 0;
+			this.buttonEdit.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.buttonEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
 			this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -134,13 +142,17 @@
 			this.buttonEdit.Name = "buttonEdit";
 			this.buttonEdit.Size = new System.Drawing.Size(51, 40);
 			this.buttonEdit.TabIndex = 21;
+			this.buttonEdit.TabStop = false;
 			this.buttonEdit.Text = "...";
 			this.buttonEdit.UseVisualStyleBackColor = false;
 			// 
 			// buttonIngredients
 			// 
 			this.buttonIngredients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+			this.buttonIngredients.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonIngredients.FlatAppearance.BorderSize = 0;
+			this.buttonIngredients.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.buttonIngredients.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonIngredients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
 			this.buttonIngredients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonIngredients.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
@@ -149,14 +161,19 @@
 			this.buttonIngredients.Name = "buttonIngredients";
 			this.buttonIngredients.Size = new System.Drawing.Size(200, 35);
 			this.buttonIngredients.TabIndex = 21;
+			this.buttonIngredients.TabStop = false;
 			this.buttonIngredients.Text = "Ingredients";
 			this.buttonIngredients.UseVisualStyleBackColor = false;
 			// 
 			// buttonRandomRecipe
 			// 
 			this.buttonRandomRecipe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+			this.buttonRandomRecipe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.buttonRandomRecipe.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.buttonRandomRecipe.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonRandomRecipe.FlatAppearance.BorderSize = 0;
+			this.buttonRandomRecipe.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.buttonRandomRecipe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.buttonRandomRecipe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
 			this.buttonRandomRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonRandomRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,6 +183,7 @@
 			this.buttonRandomRecipe.Name = "buttonRandomRecipe";
 			this.buttonRandomRecipe.Size = new System.Drawing.Size(689, 80);
 			this.buttonRandomRecipe.TabIndex = 20;
+			this.buttonRandomRecipe.TabStop = false;
 			this.buttonRandomRecipe.Text = "Random Recipe!";
 			this.buttonRandomRecipe.UseVisualStyleBackColor = false;
 			// 
@@ -182,7 +200,7 @@
 			// 
 			// panelSideBar
 			// 
-			this.panelSideBar.BackColor = System.Drawing.SystemColors.AppWorkspace;
+			this.panelSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
 			this.panelSideBar.Controls.Add(this.recipeImage);
 			this.panelSideBar.Controls.Add(this.buttonIngredients);
 			this.panelSideBar.Controls.Add(this.buttonMethod);
