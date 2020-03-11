@@ -39,7 +39,9 @@
 			this.panelSideBar = new System.Windows.Forms.Panel();
 			this.button1 = new System.Windows.Forms.Button();
 			this.labelRecipeFilters = new System.Windows.Forms.Label();
+			this.buttonFocusStealer = new System.Windows.Forms.Button();
 			this.panelScroll.SuspendLayout();
+			this.panelViewPort.SuspendLayout();
 			this.panelSideBar.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -168,10 +170,12 @@
 			this.buttonAddRecipe.TabStop = false;
 			this.buttonAddRecipe.Text = "Add Recipe";
 			this.buttonAddRecipe.UseVisualStyleBackColor = false;
+			this.buttonAddRecipe.Click += new System.EventHandler(this.buttonAddRecipe_Click);
 			// 
 			// panelViewPort
 			// 
 			this.panelViewPort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.panelViewPort.Controls.Add(this.buttonFocusStealer);
 			this.panelViewPort.Location = new System.Drawing.Point(200, 0);
 			this.panelViewPort.Margin = new System.Windows.Forms.Padding(0);
 			this.panelViewPort.Name = "panelViewPort";
@@ -221,6 +225,15 @@
 			this.labelRecipeFilters.Text = "Recipe Filters";
 			this.labelRecipeFilters.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// buttonFocusStealer
+			// 
+			this.buttonFocusStealer.Location = new System.Drawing.Point(328, 286);
+			this.buttonFocusStealer.Name = "buttonFocusStealer";
+			this.buttonFocusStealer.Size = new System.Drawing.Size(10, 10);
+			this.buttonFocusStealer.TabIndex = 0;
+			this.buttonFocusStealer.Text = "Why can you see me";
+			this.buttonFocusStealer.UseVisualStyleBackColor = true;
+			// 
 			// Window
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -236,6 +249,7 @@
 			this.Name = "Window";
 			this.Text = "Recipe Generator";
 			this.panelScroll.ResumeLayout(false);
+			this.panelViewPort.ResumeLayout(false);
 			this.panelSideBar.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -253,6 +267,7 @@
 		public System.Windows.Forms.Panel panelSideBar;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label labelRecipeFilters;
+		private System.Windows.Forms.Button buttonFocusStealer;
 	}
 }
 

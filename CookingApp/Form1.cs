@@ -85,6 +85,17 @@ namespace CookingApp
 			OpenSubMenu(new RecipeGenerator());
 		}
 
+		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+		{
+			if(!msg.HWnd.Equals(this.Handle) && (keyData == Keys.Tab) || (keyData == Keys.Left || keyData == Keys.Right || keyData == Keys.Up || keyData == Keys.Down))
+			{ 
+				return true;
+			}
+
+			buttonFocusStealer.Focus();
+			return base.ProcessCmdKey(ref msg, keyData);
+		}
+
 		void InitBoolMatrix()
 		{
 			foreach(string e in Enum.GetNames(typeof(RecipeType)))
@@ -260,32 +271,46 @@ namespace CookingApp
 			}
 		}
 
+		void RefocusControls()
+		{ 
+			buttonFocusStealer.Focus();
+		}
+
 		#region Filter Buttons
 		private void buttonHealth_Click(object sender, EventArgs e)
 		{
+			RefocusControls();
 			ToggleFilter(sender);
 		}
 
 		private void buttonOldFavourites_Click(object sender, EventArgs e)
 		{
+			RefocusControls();
 			ToggleFilter(sender);
 		}
 
 		private void buttonQuickAndEasy_Click(object sender, EventArgs e)
 		{
+			RefocusControls();
 			ToggleFilter(sender);
 		}
 
 		private void buttonBreakfast_Click(object sender, EventArgs e)
 		{
+			RefocusControls();
 			ToggleFilter(sender);
 		}
 
 		private void buttonSharingWithFriends_Click(object sender, EventArgs e)
 		{
+			RefocusControls();
 			ToggleFilter(sender);
 		}
 		#endregion
 
+		private void buttonAddRecipe_Click(object sender, EventArgs e)
+		{
+			RefocusControls();
+		}
 	}
 }
