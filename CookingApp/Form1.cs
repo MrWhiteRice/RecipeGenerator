@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +6,8 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Windows.Forms;
 
 namespace CookingApp
@@ -48,25 +47,14 @@ namespace CookingApp
 			ToggleFilter("QuickAndEasy");
 
 			//Set up first viewport
-			OpenSubMenu(new RecipeGenerator());
+			//OpenSubMenu(new RecipeGenerator());
+			OpenSubMenu(new AddRecipe());
 		}
 
 		//called when window is closed
 		protected override void OnFormClosed(FormClosedEventArgs e)
 		{
 			base.OnFormClosed(e);
-		}
-
-		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-		{
-			if(!msg.HWnd.Equals(this.Handle) && (keyData == Keys.Tab) || (keyData == Keys.Left || keyData == Keys.Right || keyData == Keys.Up || keyData == Keys.Down))
-			{
-				buttonFocusStealer.Focus();
-				return true;
-			}
-
-			buttonFocusStealer.Focus();
-			return base.ProcessCmdKey(ref msg, keyData);
 		}
 
 		void InitBoolMatrix()
@@ -78,35 +66,32 @@ namespace CookingApp
 			}
 		}
 
+		public static string SerializeJson(Recipe value)
+		{
+			var options = new JsonSerializerOptions
+			{
+				WriteIndented = true
+			};
+
+			return JsonSerializer.Serialize(value, options);
+		}
+
+		Recipe DeSerializeJson(string value)
+		{
+			return JsonSerializer.Deserialize<Recipe>(value);
+		}
+
 		void InitRecipes()
 		{
-			//Writer
-			if(false)
-			{
-				JsonSerializer serializer = new JsonSerializer();
-				foreach(Recipe r in recipes)
-				{
-					using(StreamWriter sw = new StreamWriter("Recipes/" + r.name + ".json", false))
-					{
-						using(JsonWriter writer = new JsonTextWriter(sw))
-						{
-							serializer.Serialize(writer, r);
-						}
-					}
-				}
-			}
-
 			//reader
 			if(true)
 			{
 				string[] files = Directory.GetFiles("Recipes");
 				foreach(string s in files)
 				{
-					using(StreamReader reader = new StreamReader(s))
-					{ 
-						Recipe recipe = JsonConvert.DeserializeObject<Recipe>(reader.ReadToEnd());
-						recipes.Add(recipe);
-					}
+					string readFile = File.ReadAllText(s);
+					Recipe r = DeSerializeJson(readFile);
+					recipes.Add(r);
 				}
 			}
 		}
@@ -183,46 +168,37 @@ namespace CookingApp
 			}
 		}
 
-		void RefocusControls()
-		{ 
-			buttonFocusStealer.Focus();
-		}
-
 		#region Filter Buttons
 		private void buttonHealth_Click(object sender, EventArgs e)
 		{
-			RefocusControls();
 			ToggleFilter(sender);
 		}
 
 		private void buttonOldFavourites_Click(object sender, EventArgs e)
 		{
-			RefocusControls();
 			ToggleFilter(sender);
 		}
 
 		private void buttonQuickAndEasy_Click(object sender, EventArgs e)
 		{
-			RefocusControls();
 			ToggleFilter(sender);
 		}
 
 		private void buttonBreakfast_Click(object sender, EventArgs e)
 		{
-			RefocusControls();
 			ToggleFilter(sender);
 		}
 
 		private void buttonSharingWithFriends_Click(object sender, EventArgs e)
 		{
-			RefocusControls();
 			ToggleFilter(sender);
 		}
 		#endregion
 
 		private void buttonAddRecipe_Click(object sender, EventArgs e)
 		{
-			RefocusControls();
+			//Add Recipe
+			Close();
 		}
 	}
 }

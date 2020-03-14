@@ -40,7 +40,6 @@
 			this.buttonRandomRecipe = new System.Windows.Forms.Button();
 			this.panelBackPanel = new System.Windows.Forms.Panel();
 			this.panelSideBar = new System.Windows.Forms.Panel();
-			this.buttonFocusStealer2 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.recipeImage)).BeginInit();
 			this.panelMain.SuspendLayout();
 			this.panelBackPanel.SuspendLayout();
@@ -64,6 +63,7 @@
 			this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
 			this.panelMain.Controls.Add(this.descriptionText);
 			this.panelMain.Controls.Add(this.recipeText);
+			this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelMain.Location = new System.Drawing.Point(200, 0);
 			this.panelMain.Margin = new System.Windows.Forms.Padding(0);
 			this.panelMain.Name = "panelMain";
@@ -206,15 +206,6 @@
 			this.panelSideBar.Size = new System.Drawing.Size(200, 441);
 			this.panelSideBar.TabIndex = 0;
 			// 
-			// buttonFocusStealer2
-			// 
-			this.buttonFocusStealer2.Location = new System.Drawing.Point(339, 275);
-			this.buttonFocusStealer2.Name = "buttonFocusStealer2";
-			this.buttonFocusStealer2.Size = new System.Drawing.Size(10, 10);
-			this.buttonFocusStealer2.TabIndex = 22;
-			this.buttonFocusStealer2.Text = "Why can you see me";
-			this.buttonFocusStealer2.UseVisualStyleBackColor = true;
-			// 
 			// RecipeGenerator
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -224,7 +215,6 @@
 			this.Controls.Add(this.panelBackPanel);
 			this.Controls.Add(this.labelFoodName);
 			this.Controls.Add(this.buttonRandomRecipe);
-			this.Controls.Add(this.buttonFocusStealer2);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "RecipeGenerator";
 			this.Text = "RecipeGenerator";
@@ -250,6 +240,5 @@
 		private System.Windows.Forms.Button buttonRandomRecipe;
 		private System.Windows.Forms.Panel panelBackPanel;
 		private System.Windows.Forms.Panel panelSideBar;
-		private System.Windows.Forms.Button buttonFocusStealer2;
 	}
 }

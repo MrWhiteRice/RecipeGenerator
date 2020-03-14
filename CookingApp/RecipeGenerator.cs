@@ -99,51 +99,41 @@ namespace CookingApp
 			//TODO: Turn into array
 			labelFoodName.Text = Window.window.recipes[select].name;
 			recipeText.Text = Window.window.recipes[select].name + "\nPG: " + Window.window.recipes[select].page + "\nType: " + Window.window.recipes[select].type.ToString();
-			descriptionText.Text = Window.window.recipes[select].method;
+			descriptionText.Text = Window.window.recipes[select].method[0];
 
 			//remember selection
 			lastRecipe = select;
 		}
 
-		void RefocusControls()
-		{
-			buttonFocusStealer2.Focus();
-		}
-
 		private void buttonMethod_Click(object sender, EventArgs e)
 		{
-			RefocusControls();
-
 			if(lastRecipe != -1)
 			{
-				descriptionText.Text = Window.window.recipes[lastRecipe].method;
+				descriptionText.Text = Window.window.recipes[lastRecipe].method[0];
 			}
 		}
 
 		private void buttonIngredients_Click(object sender, EventArgs e)
 		{
-			RefocusControls();
-
 			if(lastRecipe != -1)
 			{
-				descriptionText.Text = Window.window.recipes[lastRecipe].ingredients;
+				descriptionText.Text = Window.window.recipes[lastRecipe].ingredients[0];
 			}
 		}
 
 		private void buttonRandomRecipe_Click(object sender, EventArgs e)
 		{
-			RefocusControls();
 			NewRecipe();
 		}
 
 		private void buttonEdit_Click(object sender, EventArgs e)
 		{
-			RefocusControls();
+			
 		}
 
 		private void buttonAddRecipe_Click(object sender, EventArgs e)
 		{
-			RefocusControls();
+			
 		}
 	}
 }
