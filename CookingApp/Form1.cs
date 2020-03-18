@@ -197,8 +197,7 @@ namespace CookingApp
 
 		private void buttonAddRecipe_Click(object sender, EventArgs e)
 		{
-			//Add Recipe
-			Close();
+			OpenSubMenu(new AddRecipe());
 		}
 	}
 }

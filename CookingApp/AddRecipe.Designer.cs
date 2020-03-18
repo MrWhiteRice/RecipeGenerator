@@ -36,11 +36,15 @@
 			this.buttonExit = new System.Windows.Forms.Button();
 			this.panelBackPanel = new System.Windows.Forms.Panel();
 			this.panelMain = new System.Windows.Forms.Panel();
+			this.panelAdd = new System.Windows.Forms.Panel();
+			this.buttonAdd = new System.Windows.Forms.Button();
 			this.buttonSaveRecipe = new System.Windows.Forms.Button();
 			this.textBoxRecipeName = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.recipeImage)).BeginInit();
 			this.panelSideBar.SuspendLayout();
 			this.panelBackPanel.SuspendLayout();
+			this.panelMain.SuspendLayout();
+			this.panelAdd.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// recipeImage
@@ -71,6 +75,7 @@
 			this.buttonIngredients.TabStop = false;
 			this.buttonIngredients.Text = "Ingredients";
 			this.buttonIngredients.UseVisualStyleBackColor = false;
+			this.buttonIngredients.Click += new System.EventHandler(this.buttonIngredients_Click);
 			// 
 			// panelSideBar
 			// 
@@ -80,7 +85,7 @@
 			this.panelSideBar.Controls.Add(this.buttonMethod);
 			this.panelSideBar.Dock = System.Windows.Forms.DockStyle.Left;
 			this.panelSideBar.Location = new System.Drawing.Point(0, 0);
-			this.panelSideBar.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+			this.panelSideBar.Margin = new System.Windows.Forms.Padding(0);
 			this.panelSideBar.Name = "panelSideBar";
 			this.panelSideBar.Size = new System.Drawing.Size(200, 441);
 			this.panelSideBar.TabIndex = 0;
@@ -101,6 +106,7 @@
 			this.buttonMethod.TabStop = false;
 			this.buttonMethod.Text = "Method";
 			this.buttonMethod.UseVisualStyleBackColor = false;
+			this.buttonMethod.Click += new System.EventHandler(this.buttonMethod_Click);
 			// 
 			// buttonExit
 			// 
@@ -136,13 +142,46 @@
 			// 
 			// panelMain
 			// 
+			this.panelMain.AutoScroll = true;
 			this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+			this.panelMain.Controls.Add(this.panelAdd);
 			this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelMain.Location = new System.Drawing.Point(200, 0);
 			this.panelMain.Margin = new System.Windows.Forms.Padding(0);
 			this.panelMain.Name = "panelMain";
 			this.panelMain.Size = new System.Drawing.Size(489, 441);
 			this.panelMain.TabIndex = 24;
+			this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
+			// 
+			// panelAdd
+			// 
+			this.panelAdd.Controls.Add(this.buttonAdd);
+			this.panelAdd.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelAdd.Location = new System.Drawing.Point(0, 0);
+			this.panelAdd.Name = "panelAdd";
+			this.panelAdd.Size = new System.Drawing.Size(489, 35);
+			this.panelAdd.TabIndex = 500;
+			// 
+			// buttonAdd
+			// 
+			this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+			this.buttonAdd.Dock = System.Windows.Forms.DockStyle.Right;
+			this.buttonAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.buttonAdd.FlatAppearance.BorderSize = 0;
+			this.buttonAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+			this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.buttonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+			this.buttonAdd.Location = new System.Drawing.Point(454, 0);
+			this.buttonAdd.Margin = new System.Windows.Forms.Padding(0);
+			this.buttonAdd.Name = "buttonAdd";
+			this.buttonAdd.Size = new System.Drawing.Size(35, 35);
+			this.buttonAdd.TabIndex = 21;
+			this.buttonAdd.TabStop = false;
+			this.buttonAdd.Text = "+";
+			this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.buttonAdd.UseVisualStyleBackColor = false;
+			this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
 			// 
 			// buttonSaveRecipe
 			// 
@@ -162,6 +201,7 @@
 			this.buttonSaveRecipe.TabStop = false;
 			this.buttonSaveRecipe.Text = "Save Recipe!";
 			this.buttonSaveRecipe.UseVisualStyleBackColor = false;
+			this.buttonSaveRecipe.Click += new System.EventHandler(this.buttonSaveRecipe_Click);
 			// 
 			// textBoxRecipeName
 			// 
@@ -171,7 +211,7 @@
 			this.textBoxRecipeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textBoxRecipeName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
 			this.textBoxRecipeName.Location = new System.Drawing.Point(0, 0);
-			this.textBoxRecipeName.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+			this.textBoxRecipeName.Margin = new System.Windows.Forms.Padding(0);
 			this.textBoxRecipeName.Name = "textBoxRecipeName";
 			this.textBoxRecipeName.Size = new System.Drawing.Size(689, 40);
 			this.textBoxRecipeName.TabIndex = 29;
@@ -193,6 +233,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.recipeImage)).EndInit();
 			this.panelSideBar.ResumeLayout(false);
 			this.panelBackPanel.ResumeLayout(false);
+			this.panelMain.ResumeLayout(false);
+			this.panelAdd.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -209,5 +251,7 @@
 		private System.Windows.Forms.Panel panelMain;
 		private System.Windows.Forms.Button buttonSaveRecipe;
 		private System.Windows.Forms.TextBox textBoxRecipeName;
+		private System.Windows.Forms.Panel panelAdd;
+		private System.Windows.Forms.Button buttonAdd;
 	}
 }
