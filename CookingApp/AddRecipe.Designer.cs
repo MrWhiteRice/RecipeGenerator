@@ -151,7 +151,6 @@
 			this.panelMain.Name = "panelMain";
 			this.panelMain.Size = new System.Drawing.Size(489, 441);
 			this.panelMain.TabIndex = 24;
-			this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
 			// 
 			// panelAdd
 			// 

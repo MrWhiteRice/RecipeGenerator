@@ -12,34 +12,80 @@ namespace CookingApp
 {
 	public partial class AddRecipe : Form
 	{
+		List<Panel> items = new List<Panel>();
+
+		List<string> methods = new List<string>();
+		List<string> ingredients = new List<string>();
+
+		enum Toggle
+		{ 
+			Method,
+			Ingredient
+		}
+		Toggle current;
+
 		int index = 1;
-		List<Panel> panels = new List<Panel>();
 
 		public AddRecipe()
 		{
 			InitializeComponent();
-			InitList();
+
+			//set list type
+			SetToggle(Toggle.Method);
+
+			//add first item
+			GenerateItem();
+
+			//init item in other list
+			ingredients.Add("");
 		}
 
-		void InitList()
+		void SetToggle(Toggle set)
 		{
-			//controols.setchildindex(control, int);
-			AddItem();
+			//reset index
+			index = 1;
+
+			//set toggle
+			current = set;
+
+			//update colour of toggle
+			buttonMethod.BackColor = current == Toggle.Method ? Color.FromArgb(37, 37, 38) : Color.FromArgb(15, 15, 15);
+			buttonIngredients.BackColor = current == Toggle.Ingredient ? Color.FromArgb(37, 37, 38) : Color.FromArgb(15, 15, 15);
+
+			//clear the list
+			foreach(Panel p in items)
+			{
+				p.Dispose();
+			}
+			items.Clear();
+
+			//generate new list
+			foreach(string s in current == Toggle.Method ? methods : ingredients)
+			{
+				items.Add(AddItem(s));
+			}
+
+			UpdateIndex();
 		}
 
-		void AddItem()
+		//adds a tile with the text 'info' attached to it
+		Panel AddItem(string info)
 		{
 			Panel p = new Panel();
+			p.Name = index.ToString();
 			p.Dock = DockStyle.Top;
 			p.Height = 40;
 			p.BackColor = Color.Red;
 
 			TextBox t = new TextBox();
+			t.Name = "TextBox";
 			t.Multiline = true;
+			t.Text = info;
 			t.Dock = DockStyle.Fill;
 			t.BackColor = Color.FromArgb(15, 15, 15);
 			t.ForeColor = Color.FromArgb(241, 241, 241);
 			t.BorderStyle = BorderStyle.None;
+			t.TextChanged += new EventHandler(UpdateText);
 			p.Controls.Add(t);
 
 			Label l = new Label();
@@ -65,43 +111,47 @@ namespace CookingApp
 			b.Click += new EventHandler(RemoveItem);
 			p.Controls.Add(b);
 
-			panels.Add(p);
-			this.panelMain.Controls.Add(p);
+			//items.Add(p);
+			panelMain.Controls.Add(p);
 			panelMain.Controls.SetChildIndex(p, 1);
-			
+
 			index++;
 
-			UpdateIndex();
+			//UpdateIndex();
+
+			return p;
 		}
 
 		void RemoveItem(object sender, EventArgs e)
 		{
 			Button b = (Button)sender;
 
+			//finds an object match
 			int removeIndex = -1;
-			for(int x = 0; x < panels.Count; x++)
+			for(int x = 0; x < items.Count; x++)
 			{
-				if(panels[x] == b.Parent)
+				if(items[x] == b.Parent)
 				{
 					removeIndex = x;
 					break;
 				}
 			}
-
+			
+			//if we find a match remove the item from the list and destroy
 			if(removeIndex != -1)
-			panels.RemoveAt(removeIndex);
-
-			b.Parent.Dispose();
-
-			UpdateIndex();
+			{
+				items.RemoveAt(removeIndex);
+				if(current == Toggle.Method) methods.RemoveAt(removeIndex); else ingredients.RemoveAt(removeIndex);
+				b.Parent.Dispose();
+				UpdateIndex();
+			}
 		}
 
 		void UpdateIndex()
 		{
-			Console.WriteLine(panels.Count);
-			for(int x = 0; x < panels.Count; x++)
+			for(int x = 0; x < items.Count; x++)
 			{
-				foreach(Control c in panels[x].Controls)
+				foreach(Control c in items[x].Controls)
 				{
 					if(c.GetType() == typeof(Label) && c.Name == "Index")
 					{
@@ -111,11 +161,11 @@ namespace CookingApp
 					}
 				}
 
-				if(panels.Count == 1)
+				if(items.Count == 1)
 				{
 					if(x == 0)
 					{
-						foreach(Control c in panels[x].Controls)
+						foreach(Control c in items[x].Controls)
 						{
 							if(c.GetType() == typeof(Button) && c.Name == "RemoveItem")
 							{
@@ -127,7 +177,7 @@ namespace CookingApp
 				}
 				else
 				{
-					foreach(Control c in panels[x].Controls)
+					foreach(Control c in items[x].Controls)
 					{
 						if(c.GetType() == typeof(Button) && c.Name == "RemoveItem")
 						{
@@ -135,6 +185,52 @@ namespace CookingApp
 						}
 					}
 				}
+			}
+		}
+
+		void UpdateText(object sender, EventArgs e)
+		{
+			TextBox t = (TextBox)sender;
+
+			for(int x = 0; x < items.Count; x++)
+			{
+				foreach(Control c in items[x].Controls)
+				{
+					if(c == t)
+					{
+						List<string> useList = current == Toggle.Method ? methods : ingredients;
+						useList[x] = t.Text;
+						return;
+					}
+				}
+			}
+		}
+		
+		void GenerateItem()
+		{
+			//add panel
+			items.Add(AddItem(""));
+
+			//add item to string list
+			List<string> useList = current == Toggle.Method ? methods : ingredients;
+			useList.Add("");
+
+			//update index
+			UpdateIndex();
+		}
+
+		void ToggleButton(object sender)
+		{
+			Button b = (Button)sender;
+
+			if(b.Name == "buttonMethod")
+			{
+				SetToggle(Toggle.Method);
+			}
+
+			if(b.Name == "buttonIngredients")
+			{
+				SetToggle(Toggle.Ingredient);
 			}
 		}
 
@@ -151,22 +247,17 @@ namespace CookingApp
 
 		private void buttonMethod_Click(object sender, EventArgs e)
 		{
-			
+			ToggleButton(sender);
 		}
 
 		private void buttonIngredients_Click(object sender, EventArgs e)
 		{
-			
-		}
-
-		private void panelMain_Paint(object sender, PaintEventArgs e)
-		{
-
+			ToggleButton(sender);
 		}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			AddItem();
+			GenerateItem();
 		}
 	}
 }

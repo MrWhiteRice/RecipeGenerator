@@ -172,15 +172,13 @@
 			// 
 			// panelViewPort
 			// 
-			this.panelViewPort.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.panelViewPort.AutoSize = true;
 			this.panelViewPort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.panelViewPort.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelViewPort.Location = new System.Drawing.Point(200, 0);
 			this.panelViewPort.Margin = new System.Windows.Forms.Padding(0);
 			this.panelViewPort.Name = "panelViewPort";
-			this.panelViewPort.Size = new System.Drawing.Size(689, 561);
+			this.panelViewPort.Size = new System.Drawing.Size(684, 561);
 			this.panelViewPort.TabIndex = 22;
 			// 
 			// panelSideBar

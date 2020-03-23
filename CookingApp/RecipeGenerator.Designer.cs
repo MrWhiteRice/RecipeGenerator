@@ -63,9 +63,7 @@
 			this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
 			this.panelMain.Controls.Add(this.descriptionText);
 			this.panelMain.Controls.Add(this.recipeText);
-			this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelMain.Location = new System.Drawing.Point(200, 0);
-			this.panelMain.Margin = new System.Windows.Forms.Padding(0);
 			this.panelMain.Name = "panelMain";
 			this.panelMain.Size = new System.Drawing.Size(489, 441);
 			this.panelMain.TabIndex = 24;

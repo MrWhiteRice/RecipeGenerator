@@ -86,6 +86,10 @@ namespace CookingApp
 			//reader
 			if(true)
 			{
+				//try create directory if none exist
+				Directory.CreateDirectory("Recipes");
+
+				//get all files in directory
 				string[] files = Directory.GetFiles("Recipes");
 				foreach(string s in files)
 				{

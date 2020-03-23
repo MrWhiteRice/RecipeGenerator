@@ -130,10 +130,5 @@ namespace CookingApp
 		{
 			
 		}
-
-		private void buttonAddRecipe_Click(object sender, EventArgs e)
-		{
-			
-		}
 	}
 }
