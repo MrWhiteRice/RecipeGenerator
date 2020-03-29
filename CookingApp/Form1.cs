@@ -62,11 +62,18 @@ namespace CookingApp
 			foreach(string e in Enum.GetNames(typeof(RecipeType)))
 			{
 				buttonToggles.Add(new RecipeToggle(e));
-				Console.WriteLine("adding: " + e);
 			}
 		}
 
-		public static string SerializeJson(Recipe value)
+		public static void SaveRecipe(Recipe recipe)
+		{
+			StreamWriter s = new StreamWriter("Recipes/" + recipe.name + ".json");
+			string str = SerializeJson(recipe);
+			s.WriteLine(str);
+			s.Close();
+		}
+
+		static string SerializeJson(Recipe value)
 		{
 			var options = new JsonSerializerOptions
 			{
@@ -76,9 +83,14 @@ namespace CookingApp
 			return JsonSerializer.Serialize(value, options);
 		}
 
-		Recipe DeSerializeJson(string value)
+		void DeSerializeJson(List<string> value)
 		{
-			return JsonSerializer.Deserialize<Recipe>(value);
+			foreach(string s in value)
+			{
+				Recipe r = JsonSerializer.Deserialize<Recipe>(s);
+				recipes.Add(r);
+				Console.WriteLine("Adding item: " + r.name);
+			}
 		}
 
 		void InitRecipes()
@@ -88,15 +100,19 @@ namespace CookingApp
 			{
 				//try create directory if none exist
 				Directory.CreateDirectory("Recipes");
+				
+				//list items
+				List<string> readFiles = new List<string>();
 
 				//get all files in directory
 				string[] files = Directory.GetFiles("Recipes");
 				foreach(string s in files)
 				{
-					string readFile = File.ReadAllText(s);
-					Recipe r = DeSerializeJson(readFile);
-					recipes.Add(r);
+					readFiles.Add(File.ReadAllText(s));
 				}
+
+				//deserialize list
+				DeSerializeJson(readFiles);
 			}
 		}
 
@@ -154,7 +170,6 @@ namespace CookingApp
 
 			if(b == null)
 			{
-				Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<No Suitable Object Found!");
 				return;
 			}
 

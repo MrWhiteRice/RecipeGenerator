@@ -8,9 +8,9 @@
 		public string[] ingredients { get; set; }
 		public string[] method { get; set; }
 
-		public Recipe() 
+		public Recipe()
 		{
-
+		
 		}
 
 		public Recipe(int Page, RecipeType RecipeType, string Name, string[] Ingredients, string[] Method)

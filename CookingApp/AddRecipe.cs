@@ -241,6 +241,15 @@ namespace CookingApp
 
 		private void buttonSaveRecipe_Click(object sender, EventArgs e)
 		{
+			Recipe r = new Recipe();
+			r.ingredients = ingredients.ToArray();
+			r.method = methods.ToArray();
+			r.name = textBoxRecipeName.Text;
+			r.page = -1;
+			r.type = RecipeType.Breakfast;
+
+			Window.SaveRecipe(r);
+
 			//Add Recipe
 			Close();
 		}
